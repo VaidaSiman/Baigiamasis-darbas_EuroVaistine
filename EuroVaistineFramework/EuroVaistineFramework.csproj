@@ -52,7 +52,7 @@
   <ItemGroup>
     <Compile Include="Driver.cs" />
     <Compile Include="Pages\Common.cs" />
-    <Compile Include="Pages\EuroVaistine.cs" />
+    <Compile Include="Pages\EuroVaistineMainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

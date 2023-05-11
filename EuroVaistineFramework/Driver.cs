@@ -3,11 +3,11 @@ using OpenQA.Selenium.Chrome;
 
 namespace EuroVaistineFramework
 {
-    internal class Driver
+    public class Driver
     {
-        private static IWebDriver driver;
+        private static IWebDriver driver; //galima kreiptis tik per metodą GetDriver, nes privatus padarytas 
 
-        internal static void InitializeDriver()
+        public static void InitializeDriver()
         {
             driver = new ChromeDriver();
         }
@@ -17,13 +17,12 @@ namespace EuroVaistineFramework
             return driver;
         }
 
-        internal static void OpenPage()
+        public static void OpenPage(string url)
         {
-            driver.Navigate().GoToUrl(string url);
             driver.Url = url;
         }
 
-        internal static void ShutdownDriver()
+        public static void ShutdownDriver()
         {
             driver.Quit();
         }
