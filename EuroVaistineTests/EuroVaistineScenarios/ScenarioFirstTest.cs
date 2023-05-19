@@ -23,6 +23,5 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             Assert.AreEqual(expectedResult, actualResult);
             Driver.ShutdownDriver();
         }
-
     }
 }
