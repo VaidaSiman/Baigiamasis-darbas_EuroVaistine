@@ -1,32 +1,40 @@
-﻿using System;
-
-namespace EuroVaistineFramework.Pages
+﻿namespace EuroVaistineFramework.Pages
 {
     public class EuroVaistineMainPage
     {
-
         public static void Open()
         {
             Driver.OpenPage("https://www.eurovaistine.lt/");
         }
 
-        public static void EnterMessage(string message) //pagal metodą pavadinimas
+        public static void ClickButtonPrisijungti()
         {
-            /*Byte locatorXpath = By.XPath(""); // kitas būdas, kaip be stringo pasirašyt */  //bet ji priklauso nuo Selenium, tai geriau nenaudoti taip, nes išmeta usingą priklausomą nuo selenium
-            string locator = ""; // čia bus Xpath 
-            Common.SendKeys(locator, message); // mūsų sukurtas send keys / metodas perduoda message ir elemento adresas (parametras) Locator Xpath/ negrąžina nieko
+            string locatorButtonPrisijungti = "//*[@class='headerUserMenuWrapper']"; 
+            Common.Click(locatorButtonPrisijungti);
         }
 
-        public static void ClickShowMessage()
+        public static void EnterElektroninisPastas(string email)
         {
-            string locator = ""; // Xpath čia vėl bus
-            Common.Click(locator); //paspausime ant elemento / adresas elemento ant kurio spausime locator šiuo atveju / 
+            string locator = "//*[@id='_username']";
+            Common.SendKeys(locator, email);
         }
 
-        public static string GetYourmessage() //metodas grąžina atgal į testą
+        public static void EnterSlaptazodis(string slaptazodis)
         {
-            string locator = "";
-            return Common.GetElementText(locator); //perduodam locator ir gaunam tekstą , bus lyginamas šitas gaunamas elementas, bet kitoj vietoje, ne čia tai kintamojo kurti nereikia
+            string locator = "//*[@id='_password']";
+            Common.SendKeys(locator, slaptazodis);
+        }
+
+        public static void ClickButtonPrisijungtiZalias()
+        {
+            string locator = "//*[@class='form_name_shop_login_check default-form clearfix']/button";
+            Common.Click(locator);
+        }
+
+        public static string GetAlertMessage()
+        {
+            string locator = "//*[@class='alert alert-danger']/text()";
+            return Common.GetAlertText(locator);
         }
     }
 }

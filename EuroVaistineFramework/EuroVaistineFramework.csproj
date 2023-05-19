@@ -53,6 +53,7 @@
     <Compile Include="Driver.cs" />
     <Compile Include="Pages\Common.cs" />
     <Compile Include="Pages\EuroVaistineMainPage.cs" />
+    <Compile Include="Pages\ShoppingCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

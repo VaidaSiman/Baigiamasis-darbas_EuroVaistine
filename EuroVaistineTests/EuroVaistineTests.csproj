@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EuroVaistineScenarios\ScenarioFirstTest.cs" />
+    <Compile Include="EuroVaistineScenarios\LogInWithInvalidCredentilas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
