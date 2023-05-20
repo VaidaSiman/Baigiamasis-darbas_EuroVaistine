@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EuroVaistineFramework.Pages
+﻿namespace EuroVaistineFramework.Pages
 {
     public class EuroVaistineMainPage
     {

@@ -23,5 +23,10 @@ namespace EuroVaistineFramework.Pages
         {
             return GetElement(locator).Text;
         }
+
+        internal static string GetItemsPrice(string locator)
+        {
+            return GetElement(locator).Text;
+        }
     }
 }

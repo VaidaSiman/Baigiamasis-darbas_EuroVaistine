@@ -4,10 +4,10 @@ using NUnit.Framework;
 
 namespace EuroVaistineTests.EuroVaistineScenarios
 {
-    internal class LogInWithInvalidCredentilas
+    internal class LogIn
     {
         [Test]
-        public void EuroVaistineSingleInputField()
+        public void LogInWithInvalidCredentials()
         {
             string expectedResult = "Pašto adresas nerastas. Prašome įvesti teisingą el. pašto adresą";
 
