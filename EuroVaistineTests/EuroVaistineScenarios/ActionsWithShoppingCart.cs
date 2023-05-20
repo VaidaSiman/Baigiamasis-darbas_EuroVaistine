@@ -12,8 +12,8 @@ namespace EuroVaistineTests.EuroVaistineScenarios
         {
             string expectedResult = "9,38 €";
 
-            Driver.InitializeDriver();
-            EuroVaistineMainPage.Open();
+            Driver.InitializeDriver(); //neturetu but teste
+            EuroVaistineMainPage.Open(); //neturetu but teste, nes dubliuojasi
 
             EuroVaistineShoppingCart.ClickOnAdvertButton(); //cia riekia kazkaip suletinima padaryt 
             EuroVaistineShoppingCart.EnterItemsNameInSearchBox("Vitamina C PROLONG, 40 kapsulių");
@@ -61,7 +61,7 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             EuroVaistineShoppingCart.CllickOnItemRemovalButton();
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
 
-            string actualResult = EuroVaistineShoppingCart.GetItemsPrice();
+            string actualResult = EuroVaistineShoppingCart.GetItemsPrice(); //cia kas bus actual value pasitikrinti ar neturi b8ti getelement text labaiu, kaip benrinis visiems tinkamas?
 
             Assert.AreEqual(expectedResult, actualResult);
             Driver.ShutdownDriver();
@@ -82,7 +82,7 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             EuroVaistineShoppingCart.ClickOnListOptionPasirinktiVaistine(); //cia reiketu isskleisti sarasa, kazkur jis rode
             EuroVaistineShoppingCart.ClickOnAddressOptionAntakalnioG59(); // ar cia galima nera6yti skaiciu? 
 
-            string actualResult = EuroVaistineShoppingCart.GetItemsPrice();
+            string actualResult = EuroVaistineShoppingCart.GetItemsPrice(); //cia kas bus actual value pasitikrinti 
 
             Assert.AreEqual(expectedResult, actualResult);
             Driver.ShutdownDriver();

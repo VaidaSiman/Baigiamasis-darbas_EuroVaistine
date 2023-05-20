@@ -19,12 +19,7 @@ namespace EuroVaistineFramework.Pages
             GetElement(locator).SendKeys(keys);
         }
 
-        internal static string GetAlertText(string locator)
-        {
-            return GetElement(locator).Text;
-        }
-
-        internal static string GetItemsPrice(string locator)
+        internal static string GetElementText(string locator)
         {
             return GetElement(locator).Text;
         }

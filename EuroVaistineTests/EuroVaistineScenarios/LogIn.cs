@@ -9,14 +9,16 @@ namespace EuroVaistineTests.EuroVaistineScenarios
         [Test]
         public void LogInWithInvalidCredentials()
         {
+            string email = "test@test.com";
+            string slaptazodis = "test";
             string expectedResult = "Pašto adresas nerastas. Prašome įvesti teisingą el. pašto adresą";
 
             Driver.InitializeDriver();
             EuroVaistineMainPage.Open();
 
             EuroVaistineMainPage.ClickButtonPrisijungti();
-            EuroVaistineMainPage.EnterElektroninisPastas("test@test.com");
-            EuroVaistineMainPage.EnterSlaptazodis("test");
+            EuroVaistineMainPage.EnterElektroninisPastas(email);
+            EuroVaistineMainPage.EnterSlaptazodis(slaptazodis);
             EuroVaistineMainPage.ClickButtonPrisijungtiZalias();
             string actualResult  = EuroVaistineMainPage.GetAlertMessage(); 
 

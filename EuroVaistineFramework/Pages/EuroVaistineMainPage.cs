@@ -34,7 +34,7 @@
         public static string GetAlertMessage()
         {
             string locator = "//*[@class='alert alert-danger']";
-            return Common.GetAlertText(locator);
+            return Common.GetElementText(locator);
         }
     }
 }

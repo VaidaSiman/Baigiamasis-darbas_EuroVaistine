@@ -34,7 +34,7 @@
         public static string GetItemsPrice()
         {
             string locator = "//*[@id='cart-block']/div/div[2]/text()";
-            return Common.GetItemsPrice(locator);
+            return Common.GetElementText(locator);
         }
     }
 }
