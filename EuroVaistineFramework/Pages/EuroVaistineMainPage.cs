@@ -1,4 +1,6 @@
-﻿namespace EuroVaistineFramework.Pages
+﻿using System;
+
+namespace EuroVaistineFramework.Pages
 {
     public class EuroVaistineMainPage
     {
@@ -9,8 +11,8 @@
 
         public static void ClickButtonPrisijungti()
         {
-            string locatorButtonPrisijungti = "//*[@class='headerUserMenuWrapper']"; 
-            Common.Click(locatorButtonPrisijungti);
+            string locator = "//*[@class='headerUserMenuWrapper']";
+            Common.Click(locator);
         }
 
         public static void EnterElektroninisPastas(string email)
@@ -33,7 +35,7 @@
 
         public static string GetAlertMessage()
         {
-            string locator = "//*[@class='alert alert-danger']/text()";
+            string locator = "//*[@class='alert alert-danger']";
             return Common.GetAlertText(locator);
         }
     }

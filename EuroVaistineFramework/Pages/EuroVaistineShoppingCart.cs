@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EuroVaistineFramework.Pages
 {
-    internal class ShoppingCart
+    internal class EuroVaistineShoppingCart
     {
     }
 }
