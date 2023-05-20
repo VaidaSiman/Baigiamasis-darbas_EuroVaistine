@@ -6,15 +6,19 @@ namespace EuroVaistineTests.EuroVaistineScenarios
 {
     internal class LogIn
     {
+        [SetUp]
+        public void SetUp()
+        {
+            Driver.InitializeDriver();
+            EuroVaistineMainPage.Open();
+        }
+
         [Test]
         public void LogInWithInvalidCredentials()
         {
             string email = "test@test.com";
             string slaptazodis = "test";
             string expectedResult = "Pašto adresas nerastas. Prašome įvesti teisingą el. pašto adresą";
-
-            Driver.InitializeDriver();
-            EuroVaistineMainPage.Open();
 
             EuroVaistineMainPage.ClickButtonPrisijungti();
             EuroVaistineMainPage.EnterElektroninisPastas(email);
@@ -23,6 +27,11 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             string actualResult  = EuroVaistineMainPage.GetAlertMessage(); 
 
             Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
             Driver.ShutdownDriver();
         }
     }
