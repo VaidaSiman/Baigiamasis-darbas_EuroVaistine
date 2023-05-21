@@ -1,4 +1,7 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.DevTools.V111.WebAudio;
+using OpenQA.Selenium.Support.Extensions;
+using System;
 
 namespace EuroVaistineFramework.Pages
 {
@@ -22,6 +25,37 @@ namespace EuroVaistineFramework.Pages
         internal static string GetElementText(string locator)
         {
             return GetElement(locator).Text;
+        }
+
+        internal static void ScrollUntillButtonIsClickable(string locator)
+        {
+            IWebElement element = GetElement(locator);
+
+            bool isClickable = false;
+            int maxTries = 20;
+            int currentTry = 0;
+
+            while (!isClickable)
+            {
+                try
+                {
+                    element.Click();
+                    isClickable = true;
+                }
+
+                catch(Exception e)
+                {
+                    if(e is ElementClickInterceptedException && currentTry < maxTries)
+                    {
+                        Driver.GetDriver().ExecuteJavaScript("window.scrollBy(0, 10)");
+                        currentTry++;
+                    }
+                    else
+                    {
+                        throw e;
+                    }
+                }
+            }
         }
     }
 }
