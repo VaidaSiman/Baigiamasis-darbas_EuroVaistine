@@ -5,7 +5,7 @@ namespace EuroVaistineFramework
 {
     public class Driver
     {
-        private static IWebDriver driver; //galima kreiptis tik per metodą GetDriver, nes privatus padarytas 
+        private static IWebDriver driver; 
 
         public static void InitializeDriver()
         {
