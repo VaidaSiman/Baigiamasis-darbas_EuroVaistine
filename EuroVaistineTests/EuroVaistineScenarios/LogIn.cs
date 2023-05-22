@@ -20,6 +20,8 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             string slaptazodis = "test";
             string expectedResult = "Pašto adresas nerastas. Prašome įvesti teisingą el. pašto adresą";
 
+            EuroVaistineShoppingCart.ClickOnAdvertButton();
+            EuroVaistineShoppingCart.ClickOnSlapukai();
             EuroVaistineMainPage.ClickButtonPrisijungti();
             EuroVaistineMainPage.EnterElektroninisPastas(email);
             EuroVaistineMainPage.EnterSlaptazodis(slaptazodis);

@@ -16,14 +16,15 @@ namespace EuroVaistineTests.EuroVaistineScenarios
         [Test]
         public void AddingItemViaSearchBox()
         {
-            string expectedResult = "9,38 €"; //reiks manau, pakeisti, nes pagal kain1 nes1mone ziureti, nes jei kaina pasikeis? 
+            string expectedResult = "1";
 
-            EuroVaistineShoppingCart.ClickOnAdvertButton(); //cia riekia kazkaip suletinima padaryt 
+            EuroVaistineShoppingCart.ClickOnAdvertButton();
+            EuroVaistineShoppingCart.ClickOnSlapukai();
             EuroVaistineShoppingCart.EnterItemsNameInSearchBox("Vitaminas C PROLONG, 40 kapsulių");
             EuroVaistineShoppingCart.ClickSearchButton();
-            EuroVaistineShoppingCart.MoveMouseToItemAndClick(); 
+            EuroVaistineShoppingCart.HoverToItemAndClick(); //cia reikes pervadinti, nes reikia paspausti and item, nepavyko pahoverinti
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
-            string actualResult = EuroVaistineShoppingCart.GetItemsPrice(); //cia reikia pakeisti, nes pagal kaina ne tiks lyginti, o jei kaina keisis? 
+            string actualResult = EuroVaistineShoppingCart.GetNumberOfItemsInTheCart(); 
 
             Assert.AreEqual(expectedResult, actualResult);
         }
@@ -33,7 +34,8 @@ namespace EuroVaistineTests.EuroVaistineScenarios
         {
             string expectedResult = "1";
             
-            //EuroVaistineShoppingCart.ClickOnAdvertButton(); //cia riekia kazkaip suletinima padaryt //del sito butinai pkalausti
+            EuroVaistineShoppingCart.ClickOnAdvertButton(); 
+            EuroVaistineShoppingCart.ClickOnSlapukai();
             EuroVaistineShoppingCart.ClickHamburgerMeniu();
             EuroVaistineShoppingCart.ClickOnVitaminaiIrMaistoPapildai();
             EuroVaistineShoppingCart.ClickOnVitaminaiIrMineralai();
@@ -41,7 +43,7 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             EuroVaistineShoppingCart.CllickPrekiuForma(); 
             EuroVaistineShoppingCart.ClickBatonelis();
             EuroVaistineShoppingCart.ClickButtonTaikyti();
-            EuroVaistineShoppingCart.MoveMouseToItemAndClick(); //cia reikia paklausti, kaip pele nuvaryti iki ???? arr
+            EuroVaistineShoppingCart.HoverToItemAndClick(); 
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
             
             string actualResult = EuroVaistineShoppingCart.GetNumberOfItemsInTheCart();
@@ -53,11 +55,12 @@ namespace EuroVaistineTests.EuroVaistineScenarios
         public void RemovingItemFromShoppingCart()
         {
             string expectedResult = "Jūsų krepšelis yra tuščias";
-            
-            EuroVaistineShoppingCart.ClickOnAdvertButton(); //cia riekia kazkaip suletinima padaryt 
+
+            EuroVaistineShoppingCart.ClickOnAdvertButton();
+            EuroVaistineShoppingCart.ClickOnSlapukai();
             EuroVaistineShoppingCart.EnterItemsNameInSearchBox("Vitaminas C PROLONG, 40 kapsulių");
             EuroVaistineShoppingCart.ClickSearchButton();
-            EuroVaistineShoppingCart.MoveMouseToItemAndClick();
+            EuroVaistineShoppingCart.HoverToItemAndClick();
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
             EuroVaistineShoppingCart.ClickOnShoppingCartIcon();
             EuroVaistineShoppingCart.CllickOnItemRemovalButton();
@@ -72,15 +75,16 @@ namespace EuroVaistineTests.EuroVaistineScenarios
         {
             string expectedResult = "Antakalnio g. 59";
 
-            EuroVaistineShoppingCart.ClickOnAdvertButton(); //cia riekia kazkaip suletinima padaryt 
+            EuroVaistineShoppingCart.ClickOnAdvertButton();
+            EuroVaistineShoppingCart.ClickOnSlapukai();
             EuroVaistineShoppingCart.EnterItemsNameInSearchBox("Vitamina C PROLONG, 40 kapsulių");
             EuroVaistineShoppingCart.ClickSearchButton();
-            EuroVaistineShoppingCart.MoveMouseToItemAndClick();
+            EuroVaistineShoppingCart.HoverToItemAndClick();
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
             EuroVaistineShoppingCart.ClickOnShoppingCartIcon();
             EuroVaistineShoppingCart.ClickOnDeliveryOptionVaistineje();
-            EuroVaistineShoppingCart.ClickOnListOptionPasirinktiVaistine(); //cia reiketu isskleisti sarasa, kazkur jis rode
-            EuroVaistineShoppingCart.ClickOnAddressOptionAntakalnioG59(); // ar cia galima nera6yti skaiciu? 
+            EuroVaistineShoppingCart.ClickOnListOptionPasirinktiVaistine(); 
+            EuroVaistineShoppingCart.ClickOnAddressOptionAntakalnioG59(); 
 
             string actualResult = EuroVaistineShoppingCart.GetAddress(); //cia kas bus actual value pasitikrinti 
 

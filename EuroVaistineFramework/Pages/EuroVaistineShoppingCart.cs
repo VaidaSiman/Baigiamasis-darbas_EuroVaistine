@@ -1,8 +1,4 @@
-﻿using OpenQA.Selenium.Interactions;
-using System;
-using System.Xml.Linq;
-
-namespace EuroVaistineFramework.Pages
+﻿namespace EuroVaistineFramework.Pages
 {
     public class EuroVaistineShoppingCart
     {
@@ -13,7 +9,6 @@ namespace EuroVaistineFramework.Pages
 
         public static void EnterItemsNameInSearchBox(string v)
         {
-            //string locator = "//*[@id='editing-view-port']/div/";
             string locator = "//*[@class='sn-suggest-input headerSearchInput tt-input']";
             Common.SendKeys(locator, v);
         }
@@ -28,13 +23,6 @@ namespace EuroVaistineFramework.Pages
         {
             string locator = "(//*[@class='product-btn'])[1]/button";
             Common.Click(locator);
-        }
-
-        public static string GetItemsPrice()
-        {
-            //string locator = "//*[@id='cart-block']/div/div[2]";
-            string locator = "//*[@id='cart-block']/div/div[2]/text()";
-            return Common.GetElementText(locator);
         }
 
         public static void ClickHamburgerMeniu()
@@ -73,7 +61,7 @@ namespace EuroVaistineFramework.Pages
             Common.Click(locator);
         }
 
-        public static void ClickButtonTaikyti()
+        public static void ClickButtonTaikyti() 
         {
             string locator = "(//*[@class='filterDropdownSubmitBtn'])[6]";
             Common.ScrollUntillButtonIsClickable(locator);
@@ -99,7 +87,6 @@ namespace EuroVaistineFramework.Pages
 
         public static string GetMessageCartEmpty()
         {
-            //string locator = "//*[@class='text-center emptyCartTextBlock']/h3/text()";
             string locator = "//*[@class='text-center emptyCartTextBlock']";
             return Common.GetElementText(locator);
         }
@@ -130,24 +117,23 @@ namespace EuroVaistineFramework.Pages
 
         public static void ClickOnAdvertButton()
         {
-            string locatorSlapukai = " //*[@id='onetrust-accept-btn-handler']";
-            string locator = "//*[@id=\"omnisend-form-64105ed1b09e89c71966c0dd-close-button\"]";
-
-            Common.WaitForElementToBeVisisble(locatorSlapukai);
-            Common.Click(locatorSlapukai);
-            //System.Threading.Thread.Sleep(8000);  ///galimai reiks pakeisti 
+            string locator = "//*[@id='omnisend-form-64105ed1b09e89c71966c0dd-close-button']";
             Common.WaitForElementToBeVisisble(locator);
             Common.Click(locator);
         }
 
-        public static void MoveMouseToItemAndClick()
+        public static void HoverToItemAndClick()
         {
             string locator = "(//*[@class='productCard'])[1]";
-
-            Common.HoverOverElement(locator);
+            Common.HoverOverElement(locator); //cia nereikes irgi, nes sake daryti, per click paprastai
             Common.Click("(//*[contains(@class,'productCard')])[1]//*[contains(@class,'evBtnPrimary')]");
-            //Common.Click(locator); // ?ar cia jo reikia? 
-            //cia reikia veiksmo, gal Actions ? 
+        }
+
+        public static void ClickOnSlapukai()
+        {
+            string locatorSlapukai = "//*[@id='onetrust-accept-btn-handler']";
+            Common.WaitForElementToBeVisisble(locatorSlapukai);
+            Common.Click(locatorSlapukai);
         }
     }
 }

@@ -7,13 +7,6 @@
             Driver.OpenPage("https://www.eurovaistine.lt/");
         }
 
-        public static void CloseAdd()
-        {
-            string locator = "";
-            Common.WaitForElementToBeVisisble(locator);
-            Common.Click(locator);
-        }
-
         public static void ClickButtonPrisijungti()
         {
             string locator = "//*[@class='headerUserMenuWrapper']";
