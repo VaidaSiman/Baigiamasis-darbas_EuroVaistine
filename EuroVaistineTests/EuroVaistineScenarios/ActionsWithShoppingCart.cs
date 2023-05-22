@@ -12,13 +12,13 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             Driver.InitializeDriver();
             EuroVaistineMainPage.Open();
         }
-        /*
+        
         [Test]
         public void AddingItemViaSearchBox()
         {
             string expectedResult = "9,38 €"; //reiks manau, pakeisti, nes pagal kain1 nes1mone ziureti, nes jei kaina pasikeis? 
 
-            //EuroVaistineShoppingCart.ClickOnAdvertButton(); //cia riekia kazkaip suletinima padaryt 
+            EuroVaistineShoppingCart.ClickOnAdvertButton(); //cia riekia kazkaip suletinima padaryt 
             EuroVaistineShoppingCart.EnterItemsNameInSearchBox("Vitaminas C PROLONG, 40 kapsulių");
             EuroVaistineShoppingCart.ClickSearchButton();
             EuroVaistineShoppingCart.MoveMouseToItemAndClick(); 
@@ -27,7 +27,7 @@ namespace EuroVaistineTests.EuroVaistineScenarios
 
             Assert.AreEqual(expectedResult, actualResult);
         }
-        /*
+        
         [Test]
         public void AddingItemViaHamburgerMeniu()
         {
@@ -66,7 +66,7 @@ namespace EuroVaistineTests.EuroVaistineScenarios
 
             Assert.AreEqual(expectedResult, actualResult);
         }
-        */
+        
         [Test]
         public void DeliveryAaddressSelection()
         {

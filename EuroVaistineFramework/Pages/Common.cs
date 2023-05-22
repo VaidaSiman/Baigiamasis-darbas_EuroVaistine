@@ -1,6 +1,8 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.DevTools.V111.WebAudio;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
+using OpenQA.Selenium.Support.UI;
 using System;
 
 namespace EuroVaistineFramework.Pages
@@ -56,6 +58,22 @@ namespace EuroVaistineFramework.Pages
                     }
                 }
             }
+        }
+
+        internal static void HoverOverElement(string locator)
+        {
+            IWebElement element = GetElement(locator);
+
+            Actions actions = new Actions(Driver.GetDriver());
+            actions.ScrollByAmount(0, 327);
+            actions.MoveToElement(element);
+            actions.Perform();
+        }
+
+        internal static void WaitForElementToBeVisisble(string locator)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(20));
+            wait.Until(d => d.FindElement(By.XPath(locator)).Displayed);
         }
     }
 }

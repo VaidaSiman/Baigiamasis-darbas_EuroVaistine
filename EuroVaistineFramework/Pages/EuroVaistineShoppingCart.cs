@@ -130,15 +130,23 @@ namespace EuroVaistineFramework.Pages
 
         public static void ClickOnAdvertButton()
         {
-            string locator = " //*[@id='onetrust-accept-btn-handler']";
-            System.Threading.Thread.Sleep(8000);  ///galimai reiks pakeisti 
+            string locatorSlapukai = " //*[@id='onetrust-accept-btn-handler']";
+            string locator = "//*[@id=\"omnisend-form-64105ed1b09e89c71966c0dd-close-button\"]";
+
+            Common.WaitForElementToBeVisisble(locatorSlapukai);
+            Common.Click(locatorSlapukai);
+            //System.Threading.Thread.Sleep(8000);  ///galimai reiks pakeisti 
+            Common.WaitForElementToBeVisisble(locator);
             Common.Click(locator);
         }
 
         public static void MoveMouseToItemAndClick()
         {
             string locator = "(//*[@class='productCard'])[1]";
-            Common.Click(locator); // ?ar cia jo reikia? 
+
+            Common.HoverOverElement(locator);
+            Common.Click("(//*[contains(@class,'productCard')])[1]//*[contains(@class,'evBtnPrimary')]");
+            //Common.Click(locator); // ?ar cia jo reikia? 
             //cia reikia veiksmo, gal Actions ? 
         }
     }
