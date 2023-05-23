@@ -22,8 +22,9 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             EuroVaistineShoppingCart.ClickOnSlapukai();
             EuroVaistineShoppingCart.EnterItemsNameInSearchBox("Vitaminas C PROLONG, 40 kapsulių");
             EuroVaistineShoppingCart.ClickSearchButton();
-            EuroVaistineShoppingCart.HoverToItemAndClick(); //cia reikes pervadinti, nes reikia paspausti and item, nepavyko pahoverinti
+            EuroVaistineShoppingCart.ClickOnItemVitaminasCProlong();
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
+            //EuroVaistineShoppingCart.ClickOnShoppingCartIcon();
             string actualResult = EuroVaistineShoppingCart.GetNumberOfItemsInTheCart(); 
 
             Assert.AreEqual(expectedResult, actualResult);
@@ -43,9 +44,10 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             EuroVaistineShoppingCart.CllickPrekiuForma(); 
             EuroVaistineShoppingCart.ClickBatonelis();
             EuroVaistineShoppingCart.ClickButtonTaikyti();
-            EuroVaistineShoppingCart.HoverToItemAndClick(); 
+            EuroVaistineShoppingCart.ClickOnItemHematogenas();
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
-            
+            EuroVaistineShoppingCart.ClickOnShoppingCartIcon();
+
             string actualResult = EuroVaistineShoppingCart.GetNumberOfItemsInTheCart();
 
             Assert.AreEqual(expectedResult, actualResult);
@@ -60,7 +62,7 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             EuroVaistineShoppingCart.ClickOnSlapukai();
             EuroVaistineShoppingCart.EnterItemsNameInSearchBox("Vitaminas C PROLONG, 40 kapsulių");
             EuroVaistineShoppingCart.ClickSearchButton();
-            EuroVaistineShoppingCart.HoverToItemAndClick();
+            EuroVaistineShoppingCart.ClickOnItemVitaminasCProlong();
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
             EuroVaistineShoppingCart.ClickOnShoppingCartIcon();
             EuroVaistineShoppingCart.CllickOnItemRemovalButton();
@@ -79,7 +81,7 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             EuroVaistineShoppingCart.ClickOnSlapukai();
             EuroVaistineShoppingCart.EnterItemsNameInSearchBox("Vitamina C PROLONG, 40 kapsulių");
             EuroVaistineShoppingCart.ClickSearchButton();
-            EuroVaistineShoppingCart.HoverToItemAndClick();
+            //EuroVaistineShoppingCart.HoverToItemAndClick();
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
             EuroVaistineShoppingCart.ClickOnShoppingCartIcon();
             EuroVaistineShoppingCart.ClickOnDeliveryOptionVaistineje();

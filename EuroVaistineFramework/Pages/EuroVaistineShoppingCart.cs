@@ -1,4 +1,7 @@
-﻿namespace EuroVaistineFramework.Pages
+﻿using OpenQA.Selenium.DevTools.V113.FedCm;
+using System;
+
+namespace EuroVaistineFramework.Pages
 {
     public class EuroVaistineShoppingCart
     {
@@ -69,13 +72,18 @@
 
         public static string GetNumberOfItemsInTheCart()
         {
-            string locator = "//*[@class='headerCart-amountWrapper']/div";
+            //string locator = "//*[@class='headerCart-amountWrapper']/div";
+            //string locator = "//*[@id='cart_items_0_quantity']"; //??? 
+            string locator = "//*[@id='cart-block']//*[contains(@class, 'headerCart-amount')]/div"; //"//*[@id='cart-block']//*[contains(@class, 'headerCart-amount')]/text()";
+            System.Threading.Thread.Sleep(2000);
+            //Common.WaitForElementToBeVisisble(locator); //???
             return Common.GetElementText(locator);
         }
 
         public static void ClickOnShoppingCartIcon()
         {
             string locator = "//*[@class='headerCart-amountWrapper']";
+            System.Threading.Thread.Sleep(1000);
             Common.Click(locator);
         }
 
@@ -122,18 +130,30 @@
             Common.Click(locator);
         }
 
-        public static void HoverToItemAndClick()
+        /*public static void HoverToItemAndClick()
         {
             string locator = "(//*[@class='productCard'])[1]";
             Common.HoverOverElement(locator); //cia nereikes irgi, nes sake daryti, per click paprastai
             Common.Click("(//*[contains(@class,'productCard')])[1]//*[contains(@class,'evBtnPrimary')]");
-        }
+        } */
 
         public static void ClickOnSlapukai()
         {
             string locatorSlapukai = "//*[@id='onetrust-accept-btn-handler']";
             Common.WaitForElementToBeVisisble(locatorSlapukai);
             Common.Click(locatorSlapukai);
+        }
+
+        public static void ClickOnItemVitaminasCProlong()
+        {
+            string locator = "(//*[@class='productCard'])[1]";
+            Common.Click(locator);
+        }
+
+        public static void ClickOnItemHematogenas()
+        {
+            string locator = "//*[@class='productCard']";
+            Common.Click(locator);
         }
     }
 }

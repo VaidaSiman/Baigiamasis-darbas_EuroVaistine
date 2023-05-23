@@ -1,6 +1,8 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.Extensions;
+using System.IO;
+using System;
 
 namespace EuroVaistineFramework
 {
@@ -26,6 +28,17 @@ namespace EuroVaistineFramework
         public static void ShutdownDriver()
         {
             driver.Quit();
+        }
+
+        public static void TakeScreenshot(string testMethodName) //screenshotai
+        {
+            string screenshotsDirectoryPath = $"{AppDomain.CurrentDomain.BaseDirectory}screenshots";
+            //string screenshotName = $"{screenshotsDirectoryPath}\\scr-{Guid.NewGuid()}.png";
+            string screenshotName = $"{screenshotsDirectoryPath}\\scr-{testMethodName}-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.png";
+
+            Directory.CreateDirectory(screenshotsDirectoryPath);
+            Screenshot screenshot = ((ITakesScreenshot)driver.Value).GetScreenshot();
+            screenshot.SaveAsFile(screenshotName, ScreenshotImageFormat.Png);
         }
     }
 }
