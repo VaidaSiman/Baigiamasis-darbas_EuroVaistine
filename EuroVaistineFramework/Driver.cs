@@ -29,15 +29,17 @@ namespace EuroVaistineFramework
             driver.Quit();
         }
 
-       public static void TakeScreenshot()
+       public static string TakeScreenshot(string methodName)
         {
             string screenshotsDirectoryPath = $"{AppDomain.CurrentDomain.BaseDirectory}screenshots";
-            string screenshotName = $"{Guid.NewGuid()} - screenshots";
-            string screenshotFilePath = $"{screenshotsDirectoryPath}\\scr-{screenshotName}-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.png";
+            string screenshotName = $"{methodName}-{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}screenshot.png";
+            string screenshotFilePath = $"{screenshotsDirectoryPath}\\{screenshotName}";
 
             Directory.CreateDirectory(screenshotsDirectoryPath);
             Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
-            screenshot.SaveAsFile($"{screenshotFilePath}.png", ScreenshotImageFormat.Png);
+            screenshot.SaveAsFile($"{screenshotFilePath}", ScreenshotImageFormat.Png);
+
+            return screenshotFilePath;
         } 
     }
 }
