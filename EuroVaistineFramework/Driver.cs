@@ -1,9 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.Extensions;
 using System.IO;
 using System;
-using System.Net.NetworkInformation;
 
 namespace EuroVaistineFramework
 {
@@ -14,8 +12,6 @@ namespace EuroVaistineFramework
         public static void InitializeDriver()
         {
             driver = new ChromeDriver();
-            //ChromeOptions options = new ChromeOptions(); ///????
-            //driver.Value = new ChromeDriver(options); //????
         }
 
         internal static IWebDriver GetDriver()
