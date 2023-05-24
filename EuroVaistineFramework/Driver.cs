@@ -30,7 +30,7 @@ namespace EuroVaistineFramework
             driver.Quit();
         }
 
-        public static void TakeScreenshot(string testMethodName) //screenshotai
+       /* public static void TakeScreenshot(string testMethodName) //screenshotai ??????
         {
             string screenshotsDirectoryPath = $"{AppDomain.CurrentDomain.BaseDirectory}screenshots";
             //string screenshotName = $"{screenshotsDirectoryPath}\\scr-{Guid.NewGuid()}.png";
@@ -39,6 +39,6 @@ namespace EuroVaistineFramework
             Directory.CreateDirectory(screenshotsDirectoryPath);
             Screenshot screenshot = ((ITakesScreenshot)driver.Value).GetScreenshot();
             screenshot.SaveAsFile(screenshotName, ScreenshotImageFormat.Png);
-        }
+        } */
     }
 }
