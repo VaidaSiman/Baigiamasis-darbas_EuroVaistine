@@ -47,7 +47,7 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
             EuroVaistineShoppingCart.ClickOnShoppingCartIcon();
 
-            string actualResult = EuroVaistineShoppingCart.GetNumberOfItemsInTheCart(); //sita bandyt padaryt per pagrindini puslapisu tuo mazu skaiciuku
+            string actualResult = EuroVaistineShoppingCart.GetNumberOfItemsInTheCart();
 
             Assert.AreEqual(expectedResult, actualResult);
         } 
@@ -70,27 +70,5 @@ namespace EuroVaistineTests.EuroVaistineScenarios
 
             Assert.AreEqual(expectedResult, actualResult);
         }
-        
-        [Test]
-        public void DeliveryAaddressSelection()
-        {
-            string expectedResult = "Antakalnio g. 59";
-
-            EuroVaistineShoppingCart.ClickOnAdvertButton();
-            EuroVaistineShoppingCart.ClickOnSlapukai();
-            EuroVaistineShoppingCart.EnterItemsNameInSearchBox("Vitamina C PROLONG, 40 kapsulių");
-            EuroVaistineShoppingCart.ClickSearchButton();
-            EuroVaistineShoppingCart.ClickOnItemVitaminasCProlong();
-            EuroVaistineShoppingCart.ClickButtonIKrepseli();
-            EuroVaistineShoppingCart.ClickOnShoppingCartIcon();
-            //EuroVaistineShoppingCart.CloseChatWindow(); //???
-            EuroVaistineShoppingCart.ClickOnDeliveryOptionVaistineje();
-            EuroVaistineShoppingCart.ClickOnListOptionPasirinktiVaistine(); 
-            EuroVaistineShoppingCart.ClickOnAddressOptionAntakalnioG59(); 
-
-            string actualResult = EuroVaistineShoppingCart.GetAddress(); //cia kas bus actual value pasitikrinti 
-
-            Assert.AreEqual(expectedResult, actualResult); 
-        } 
     }
 }

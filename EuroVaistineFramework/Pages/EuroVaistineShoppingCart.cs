@@ -1,4 +1,7 @@
-﻿namespace EuroVaistineFramework.Pages
+﻿using System;
+using System.Collections.Generic;
+
+namespace EuroVaistineFramework.Pages
 {
     public class EuroVaistineShoppingCart
     {
@@ -67,11 +70,9 @@
             Common.ScrollUntillButtonIsClickable(locator);
         }
 
-        public static string GetNumberOfItemsInTheCart() //GAL REIKES PAKEISTI, NES SUSIKURIAU DU PANASIUS METODUS
+        public static string GetNumberOfItemsInTheCart() 
         {
             string locator = "//*[@id='cart_items_0_quantity']"; 
-            //System.Threading.Thread.Sleep(2000);
-            //Common.WaitForElementToBeVisisble(locator); //???
             return Common.GetElementAttributeValue(locator, "value");
         }
 
@@ -96,15 +97,13 @@
 
         public static void ClickOnDeliveryOptionVaistineje()
         {
-            string locator = "(//*[@class='shipping-method--details-block-top'])[1]"; //???
-            Common.ScrollUntillButtonIsClickable(locator);//???
-            //Common.Click(locator); 
+            string locator = "(//*[@class='shipping-method--details-block-top'])[1]"; 
+            Common.ScrollUntillButtonIsClickable(locator);
         }
 
         public static void ClickOnListOptionPasirinktiVaistine()
         {
-            //string locator = "(//*[@class='select2-selection__arrow']/b)[2]";
-            string locator = "//*[@id='select2-delivery-point-container']"; //???
+            string locator = "//*[@id='select2-delivery-point-container']"; 
             Common.Click(locator);
         }
 
@@ -127,13 +126,6 @@
             Common.Click(locator);
         }
 
-        /*public static void HoverToItemAndClick()
-        {
-            string locator = "(//*[@class='productCard'])[1]";
-            Common.HoverOverElement(locator); //cia nereikes irgi, nes sake daryti, per click paprastai
-            Common.Click("(//*[contains(@class,'productCard')])[1]//*[contains(@class,'evBtnPrimary')]");
-        } */
-
         public static void ClickOnSlapukai()
         {
             string locatorSlapukai = "//*[@id='onetrust-accept-btn-handler']";
@@ -153,13 +145,20 @@
             Common.Click(locator);
         }
 
-        public static void CloseChatWindow() //???
+        public static bool CheckIfActualValuesContainsAllOfTheEcpectedValues(List<string> expectedValues)
         {
-            string locator = "//*[@class='css-1bdptjv eqd5v0k1']//*[@class='css-1xfu0q3 eovu8nx0']";
-            Common.WaitForElementToBeVisisble(locator);
-            //Common.Click(locator);
-            Common.HoverOverElement(locator); //?
-            //Common.Click("(//*[@class='css-1g9ek8d e108e6fy0']/button//*)[1]//*");
+            string locator = "//*[@class='mainVerticalMenuItem']";
+            List<string> actualValues = Common.GetElementsTextList(locator);
+
+            foreach (string value in expectedValues)
+            {
+                if (!actualValues.Contains(value))
+                {
+                    return false;
+                    throw new Exception($"Value '{value}' is not existing!");
+                }
+            }
+            return true;
         }
     }
 }

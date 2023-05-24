@@ -1,8 +1,9 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EuroVaistineFramework.Pages
 {
@@ -11,6 +12,11 @@ namespace EuroVaistineFramework.Pages
         private static IWebElement GetElement(string locator) 
         {
             return Driver.GetDriver().FindElement(By.XPath(locator));
+        }
+
+        internal static List<IWebElement> GetElements(string locator)//???
+        {
+            return Driver.GetDriver().FindElements(By.XPath(locator)).ToList();
         }
 
         internal static void Click(string locator)
@@ -59,16 +65,6 @@ namespace EuroVaistineFramework.Pages
             }
         }
 
-        internal static void HoverOverElement(string locator) //lyg 6ito ir nereikia, nes nenaudojo  ne vienAS METODAS, PASITIKRINTI
-        {
-            IWebElement element = GetElement(locator);
-
-            Actions actions = new Actions(Driver.GetDriver());
-            actions.ScrollByAmount(0, 327);
-            actions.MoveToElement(element);
-            actions.Perform();
-        }
-
         internal static void WaitForElementToBeVisisble(string locator)
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(20)); 
@@ -78,6 +74,19 @@ namespace EuroVaistineFramework.Pages
         internal static string GetElementAttributeValue(string locator, string attributeName)
         {
             return GetElement(locator).GetAttribute(attributeName);
+        }
+
+        internal static List <string> GetElementsTextList(string locator)
+        {
+            List<string> texts = new List<string>();
+
+            List<IWebElement> elements = Common.GetElements(locator);
+            foreach (IWebElement element in elements)
+            {
+                texts.Add(element.Text);
+            }
+
+            return texts;
         }
     }
 }
