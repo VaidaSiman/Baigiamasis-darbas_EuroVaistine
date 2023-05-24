@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.DevTools.V111.WebAudio;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
@@ -60,7 +59,7 @@ namespace EuroVaistineFramework.Pages
             }
         }
 
-        internal static void HoverOverElement(string locator)
+        internal static void HoverOverElement(string locator) //lyg 6ito ir nereikia, nes nenaudojo  ne vienAS METODAS, PASITIKRINTI
         {
             IWebElement element = GetElement(locator);
 
@@ -76,7 +75,7 @@ namespace EuroVaistineFramework.Pages
             wait.Until(driver => driver.FindElement(By.XPath(locator)).Displayed);
         }
 
-        internal static string GetElementAttributeValue(string locator, string attributeName) //???
+        internal static string GetElementAttributeValue(string locator, string attributeName)
         {
             return GetElement(locator).GetAttribute(attributeName);
         }

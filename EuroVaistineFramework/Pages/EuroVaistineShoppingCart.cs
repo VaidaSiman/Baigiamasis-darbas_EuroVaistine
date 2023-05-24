@@ -1,9 +1,4 @@
-﻿using Microsoft.SqlServer.Server;
-using OpenQA.Selenium.DevTools.V113.FedCm;
-using System;
-using System.Drawing;
-
-namespace EuroVaistineFramework.Pages
+﻿namespace EuroVaistineFramework.Pages
 {
     public class EuroVaistineShoppingCart
     {
@@ -72,12 +67,12 @@ namespace EuroVaistineFramework.Pages
             Common.ScrollUntillButtonIsClickable(locator);
         }
 
-        public static string GetNumberOfItemsInTheCart()
+        public static string GetNumberOfItemsInTheCart() //GAL REIKES PAKEISTI, NES SUSIKURIAU DU PANASIUS METODUS
         {
             string locator = "//*[@id='cart_items_0_quantity']"; 
             //System.Threading.Thread.Sleep(2000);
             //Common.WaitForElementToBeVisisble(locator); //???
-            return Common.GetElementAttributeValue(locator, "value"); //?
+            return Common.GetElementAttributeValue(locator, "value");
         }
 
         public static void ClickOnShoppingCartIcon()
