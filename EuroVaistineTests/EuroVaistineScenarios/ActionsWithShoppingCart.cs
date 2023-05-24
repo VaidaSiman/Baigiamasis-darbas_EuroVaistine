@@ -1,16 +1,17 @@
 ﻿using EuroVaistineFramework;
 using EuroVaistineFramework.Pages;
 using NUnit.Framework;
+using EuroVaistineTests.BaseTests;
 using NUnit.Framework.Interfaces;
+
 
 namespace EuroVaistineTests.EuroVaistineScenarios
 {
-    internal class ActionsWithShoppingCart
+    internal class ActionsWithShoppingCart : BaseTest 
     {
         [SetUp]
-        public void SetUp()
+        public void Open()
         {
-            Driver.InitializeDriver();
             EuroVaistineMainPage.Open();
         }
         
@@ -94,17 +95,5 @@ namespace EuroVaistineTests.EuroVaistineScenarios
 
             Assert.AreEqual(expectedResult, actualResult); 
         } 
-       
-        [TearDown]
-        public void TearDown()
-        {
-            if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
-            {
-                string screenshotFilePath = Driver.TakeScreenshot(TestContext.CurrentContext.Test.MethodName);
-                TestContext.AddTestAttachment(screenshotFilePath);
-            }
-
-            Driver.ShutdownDriver();
-        }
     }
 }
