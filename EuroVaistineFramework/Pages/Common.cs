@@ -14,7 +14,7 @@ namespace EuroVaistineFramework.Pages
             return Driver.GetDriver().FindElement(By.XPath(locator));
         }
 
-        internal static List<IWebElement> GetElements(string locator)//???
+        internal static List<IWebElement> GetElements(string locator)
         {
             return Driver.GetDriver().FindElements(By.XPath(locator)).ToList();
         }
