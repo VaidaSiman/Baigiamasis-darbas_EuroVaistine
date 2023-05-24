@@ -1,15 +1,13 @@
-﻿using EuroVaistineFramework;
-using EuroVaistineFramework.Pages;
+﻿using EuroVaistineFramework.Pages;
 using NUnit.Framework;
 
 namespace EuroVaistineTests.EuroVaistineScenarios
 {
-    internal class LogIn
+    internal class LogIn : BaseTest 
     {
         [SetUp]
-        public void SetUp()
+        public void Open()
         {
-            Driver.InitializeDriver();
             EuroVaistineMainPage.Open();
         }
 
@@ -29,12 +27,6 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             string actualResult  = EuroVaistineMainPage.GetAlertMessage(); 
 
             Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            Driver.ShutdownDriver();
         }
     }
 }

@@ -1,15 +1,13 @@
-﻿using EuroVaistineFramework;
-using EuroVaistineFramework.Pages;
+﻿using EuroVaistineFramework.Pages;
 using NUnit.Framework;
 
 namespace EuroVaistineTests.EuroVaistineScenarios
 {
-    internal class ActionsWithShoppingCart
+    internal class ActionsWithShoppingCart : BaseTest 
     {
         [SetUp]
-        public void SetUp()
+        public void Open()
         {
-            Driver.InitializeDriver();
             EuroVaistineMainPage.Open();
         }
         
@@ -91,12 +89,6 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             string actualResult = EuroVaistineShoppingCart.GetAddress(); //cia kas bus actual value pasitikrinti 
 
             Assert.AreEqual(expectedResult, actualResult); 
-        }
-       
-        [TearDown]
-        public void TearDown()
-        {
-            Driver.ShutdownDriver();
         }
     }
 }

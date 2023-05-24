@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EuroVaistineScenarios\ActionsWithShoppingCart.cs" />
+    <Compile Include="EuroVaistineScenarios\BaseTest.cs" />
     <Compile Include="EuroVaistineScenarios\LogIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
