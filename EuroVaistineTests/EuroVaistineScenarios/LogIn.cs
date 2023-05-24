@@ -1,13 +1,16 @@
-﻿using EuroVaistineFramework.Pages;
+﻿using EuroVaistineFramework;
+using EuroVaistineFramework.Pages;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 
 namespace EuroVaistineTests.EuroVaistineScenarios
 {
-    internal class LogIn : BaseTest 
+    internal class LogIn 
     {
         [SetUp]
-        public void Open()
+        public void SetUp()
         {
+            Driver.InitializeDriver();
             EuroVaistineMainPage.Open();
         }
 
@@ -24,9 +27,21 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             EuroVaistineMainPage.EnterElektroninisPastas(email);
             EuroVaistineMainPage.EnterSlaptazodis(slaptazodis);
             EuroVaistineMainPage.ClickButtonPrisijungtiZalias();
+           
             string actualResult  = EuroVaistineMainPage.GetAlertMessage(); 
 
             Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
+            {
+                Driver.TakeScreenshot();
+            }
+
+            Driver.ShutdownDriver();
         }
     }
 }

@@ -1,13 +1,16 @@
-﻿using EuroVaistineFramework.Pages;
+﻿using EuroVaistineFramework;
+using EuroVaistineFramework.Pages;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 
 namespace EuroVaistineTests.EuroVaistineScenarios
 {
-    internal class ActionsWithShoppingCart : BaseTest 
+    internal class ActionsWithShoppingCart
     {
         [SetUp]
-        public void Open()
+        public void SetUp()
         {
+            Driver.InitializeDriver();
             EuroVaistineMainPage.Open();
         }
         
@@ -22,7 +25,7 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             EuroVaistineShoppingCart.ClickSearchButton();
             EuroVaistineShoppingCart.ClickOnItemVitaminasCProlong();
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
-            //EuroVaistineShoppingCart.ClickOnShoppingCartIcon();
+            EuroVaistineShoppingCart.ClickOnShoppingCartIcon();
             string actualResult = EuroVaistineShoppingCart.GetNumberOfItemsInTheCart(); 
 
             Assert.AreEqual(expectedResult, actualResult);
@@ -46,7 +49,7 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
             EuroVaistineShoppingCart.ClickOnShoppingCartIcon();
 
-            string actualResult = EuroVaistineShoppingCart.GetNumberOfItemsInTheCart();
+            string actualResult = EuroVaistineShoppingCart.GetNumberOfItemsInTheCart(); //sita bandyt padaryt per pagrindini puslapisu tuo mazu skaiciuku
 
             Assert.AreEqual(expectedResult, actualResult);
         } 
@@ -79,9 +82,10 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             EuroVaistineShoppingCart.ClickOnSlapukai();
             EuroVaistineShoppingCart.EnterItemsNameInSearchBox("Vitamina C PROLONG, 40 kapsulių");
             EuroVaistineShoppingCart.ClickSearchButton();
-            //EuroVaistineShoppingCart.HoverToItemAndClick();
+            EuroVaistineShoppingCart.ClickOnItemVitaminasCProlong();
             EuroVaistineShoppingCart.ClickButtonIKrepseli();
             EuroVaistineShoppingCart.ClickOnShoppingCartIcon();
+            //EuroVaistineShoppingCart.CloseChatWindow(); //???
             EuroVaistineShoppingCart.ClickOnDeliveryOptionVaistineje();
             EuroVaistineShoppingCart.ClickOnListOptionPasirinktiVaistine(); 
             EuroVaistineShoppingCart.ClickOnAddressOptionAntakalnioG59(); 
@@ -89,6 +93,17 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             string actualResult = EuroVaistineShoppingCart.GetAddress(); //cia kas bus actual value pasitikrinti 
 
             Assert.AreEqual(expectedResult, actualResult); 
+        } 
+       
+        [TearDown]
+        public void TearDown()
+        {
+            if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
+            {
+                Driver.TakeScreenshot();
+            }
+
+            Driver.ShutdownDriver();
         }
     }
 }

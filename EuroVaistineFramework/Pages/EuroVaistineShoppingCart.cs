@@ -1,5 +1,7 @@
-﻿using OpenQA.Selenium.DevTools.V113.FedCm;
+﻿using Microsoft.SqlServer.Server;
+using OpenQA.Selenium.DevTools.V113.FedCm;
 using System;
+using System.Drawing;
 
 namespace EuroVaistineFramework.Pages
 {
@@ -72,18 +74,16 @@ namespace EuroVaistineFramework.Pages
 
         public static string GetNumberOfItemsInTheCart()
         {
-            //string locator = "//*[@class='headerCart-amountWrapper']/div";
-            //string locator = "//*[@id='cart_items_0_quantity']"; //??? 
-            string locator = "//*[@id='cart-block']//*[contains(@class, 'headerCart-amount')]/div"; //"//*[@id='cart-block']//*[contains(@class, 'headerCart-amount')]/text()";
-            System.Threading.Thread.Sleep(2000);
+            string locator = "//*[@id='cart_items_0_quantity']"; 
+            //System.Threading.Thread.Sleep(2000);
             //Common.WaitForElementToBeVisisble(locator); //???
-            return Common.GetElementText(locator);
+            return Common.GetElementAttributeValue(locator, "value"); //?
         }
 
         public static void ClickOnShoppingCartIcon()
         {
             string locator = "//*[@class='headerCart-amountWrapper']";
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(2000);
             Common.Click(locator);
         }
 
@@ -95,19 +95,21 @@ namespace EuroVaistineFramework.Pages
 
         public static string GetMessageCartEmpty()
         {
-            string locator = "//*[@class='text-center emptyCartTextBlock']";
+            string locator = "//*[@class='text-center emptyCartTextBlock']/h3";
             return Common.GetElementText(locator);
         }
 
         public static void ClickOnDeliveryOptionVaistineje()
         {
-            string locator = "//*[@id='cart_shipments_0_method_0']";
-            Common.Click(locator);
+            string locator = "(//*[@class='shipping-method--details-block-top'])[1]"; //???
+            Common.ScrollUntillButtonIsClickable(locator);//???
+            //Common.Click(locator); 
         }
 
         public static void ClickOnListOptionPasirinktiVaistine()
         {
-            string locator = "(//*[@class='select2-selection__arrow']/b)[2]";
+            //string locator = "(//*[@class='select2-selection__arrow']/b)[2]";
+            string locator = "//*[@id='select2-delivery-point-container']"; //???
             Common.Click(locator);
         }
 
@@ -154,6 +156,15 @@ namespace EuroVaistineFramework.Pages
         {
             string locator = "//*[@class='productCard']";
             Common.Click(locator);
+        }
+
+        public static void CloseChatWindow() //???
+        {
+            string locator = "//*[@class='css-1bdptjv eqd5v0k1']//*[@class='css-1xfu0q3 eovu8nx0']";
+            Common.WaitForElementToBeVisisble(locator);
+            //Common.Click(locator);
+            Common.HoverOverElement(locator); //?
+            //Common.Click("(//*[@class='css-1g9ek8d e108e6fy0']/button//*)[1]//*");
         }
     }
 }
