@@ -1,9 +1,6 @@
-﻿using EuroVaistineFramework;
-using EuroVaistineFramework.Pages;
+﻿using EuroVaistineFramework.Pages;
 using NUnit.Framework;
 using EuroVaistineTests.BaseTests;
-using NUnit.Framework.Interfaces;
-
 
 namespace EuroVaistineTests.EuroVaistineScenarios
 {
