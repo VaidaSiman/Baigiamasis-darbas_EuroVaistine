@@ -5,10 +5,10 @@ namespace EuroVaistineFramework.Pages
 {
     public class ShoppingCart
     {
-        public static void EnterItemsNameInSearchBox(string v)
+        public static void EnterItemsNameInSearchBox(string itemToSearchFor)
         {
             string locator = "//*[@class='sn-suggest-input headerSearchInput tt-input']";
-            Common.SendKeys(locator, v);
+            Common.SendKeys(locator, itemToSearchFor);
         }
 
         public static void ClickSearchButton()
@@ -140,7 +140,7 @@ namespace EuroVaistineFramework.Pages
             Common.Click(locator);
         }
 
-        public static bool CheckIfActualValuesContainsAllOfTheEcpectedValues(List<string> expectedValues)
+        public static bool CheckIfActualValuesContainsAllOfTheExpectedValues(List<string> expectedValues)
         {
             string locator = "//*[@class='mainVerticalMenuItem']";
             List<string> actualValues = Common.GetElementsTextList(locator);

@@ -14,7 +14,7 @@ namespace EuroVaistineTests.TestCases
 
             ShoppingCart.ClickHamburgerMeniu();
 
-            Assert.IsTrue(ShoppingCart.CheckIfActualValuesContainsAllOfTheEcpectedValues(expectedValues));
+            Assert.IsTrue(ShoppingCart.CheckIfActualValuesContainsAllOfTheExpectedValues(expectedValues));
         }
     }
 }
