@@ -12,6 +12,8 @@ namespace EuroVaistineTests.BaseTests
         {
             Driver.InitializeDriver();
             HomePage.Open();
+            ShoppingCart.ClickOnAdvertButton();
+            ShoppingCart.ClickOnSlapukai();
         }
 
         [TearDown]

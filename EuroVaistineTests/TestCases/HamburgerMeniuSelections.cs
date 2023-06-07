@@ -12,8 +12,6 @@ namespace EuroVaistineTests.TestCases
         {
             List<string> expectedValues = new List<string>() { "Akcijos", "Kosmetika", "Vitaminai ir maisto papildai", "Vaistai nereceptiniai", "Medicinos ir slaugos prekės", "Higiena", "Vaikui ir mamai", "Sportas ir ortopedija", "Namai ir elektronika", "Vaistai skirti gydytojo", "Prekių ženklai" };
 
-            ShoppingCart.ClickOnAdvertButton();
-            ShoppingCart.ClickOnSlapukai();
             ShoppingCart.ClickHamburgerMeniu();
 
             Assert.IsTrue(ShoppingCart.CheckIfActualValuesContainsAllOfTheEcpectedValues(expectedValues));

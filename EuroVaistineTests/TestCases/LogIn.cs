@@ -13,13 +13,10 @@ namespace EuroVaistineTests.TestCases
             string slaptazodis = "test";
             string expectedResult = "Pašto adresas nerastas. Prašome įvesti teisingą el. pašto adresą";
 
-            ShoppingCart.ClickOnAdvertButton();
-            ShoppingCart.ClickOnSlapukai();
             HomePage.ClickButtonPrisijungti();
             HomePage.EnterElektroninisPastas(email);
             HomePage.EnterSlaptazodis(slaptazodis);
             HomePage.ClickButtonPrisijungtiZalias();
-           
             string actualResult  = HomePage.GetAlertMessage(); 
 
             Assert.AreEqual(expectedResult, actualResult);

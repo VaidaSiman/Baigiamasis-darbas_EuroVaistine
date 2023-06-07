@@ -11,8 +11,6 @@ namespace EuroVaistineTests.TestCases
         {
             string expectedResult = "1";
 
-            ShoppingCart.ClickOnAdvertButton();
-            ShoppingCart.ClickOnSlapukai();
             ShoppingCart.EnterItemsNameInSearchBox("Vitaminas C PROLONG, 40 kapsulių");
             ShoppingCart.ClickSearchButton();
             ShoppingCart.ClickOnItemVitaminasCProlong();
@@ -28,8 +26,6 @@ namespace EuroVaistineTests.TestCases
         {
             string expectedResult = "1";
             
-            ShoppingCart.ClickOnAdvertButton(); 
-            ShoppingCart.ClickOnSlapukai();
             ShoppingCart.ClickHamburgerMeniu();
             ShoppingCart.ClickOnVitaminaiIrMaistoPapildai();
             ShoppingCart.ClickOnVitaminaiIrMineralai();
@@ -40,7 +36,6 @@ namespace EuroVaistineTests.TestCases
             ShoppingCart.ClickOnItemHematogenas();
             ShoppingCart.ClickButtonIKrepseli();
             ShoppingCart.ClickOnShoppingCartIcon();
-
             string actualResult = ShoppingCart.GetNumberOfItemsInTheCart();
 
             Assert.AreEqual(expectedResult, actualResult);
@@ -51,15 +46,12 @@ namespace EuroVaistineTests.TestCases
         {
             string expectedResult = "Jūsų krepšelis yra tuščias";
 
-            ShoppingCart.ClickOnAdvertButton();
-            ShoppingCart.ClickOnSlapukai();
             ShoppingCart.EnterItemsNameInSearchBox("Vitaminas C PROLONG, 40 kapsulių");
             ShoppingCart.ClickSearchButton();
             ShoppingCart.ClickOnItemVitaminasCProlong();
             ShoppingCart.ClickButtonIKrepseli();
             ShoppingCart.ClickOnShoppingCartIcon();
             ShoppingCart.CllickOnItemRemovalButton();
-            
             string actualResult = ShoppingCart.GetMessageCartEmpty(); 
 
             Assert.AreEqual(expectedResult, actualResult);
