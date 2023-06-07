@@ -5,11 +5,6 @@ namespace EuroVaistineFramework.Pages
 {
     public class ShoppingCart
     {
-        public static void Open()
-        {
-            Driver.OpenPage("https://www.eurovaistine.lt/");
-        }
-
         public static void EnterItemsNameInSearchBox(string v)
         {
             string locator = "//*[@class='sn-suggest-input headerSearchInput tt-input']";
