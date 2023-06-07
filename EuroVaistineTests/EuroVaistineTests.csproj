@@ -49,9 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTests\BaseTest.cs" />
-    <Compile Include="EuroVaistineScenarios\ActionsWithShoppingCart.cs" />
-    <Compile Include="EuroVaistineScenarios\HamburgerMeniuSelections.cs" />
-    <Compile Include="EuroVaistineScenarios\LogIn.cs" />
+    <Compile Include="TestCases\ActionsWithShoppingCart.cs" />
+    <Compile Include="TestCases\HamburgerMeniuSelections.cs" />
+    <Compile Include="TestCases\LogIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

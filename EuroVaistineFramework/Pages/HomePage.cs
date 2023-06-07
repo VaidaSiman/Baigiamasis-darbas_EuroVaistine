@@ -1,6 +1,6 @@
 ﻿namespace EuroVaistineFramework.Pages
 {
-    public class EuroVaistineMainPage
+    public class HomePage
     {
         public static void Open()
         {

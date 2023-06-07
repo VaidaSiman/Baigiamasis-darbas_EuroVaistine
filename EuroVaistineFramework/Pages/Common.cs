@@ -14,7 +14,7 @@ namespace EuroVaistineFramework.Pages
             return Driver.GetDriver().FindElement(By.XPath(locator));
         }
 
-        internal static List<IWebElement> GetElements(string locator)
+        private static List<IWebElement> GetElements(string locator)
         {
             return Driver.GetDriver().FindElements(By.XPath(locator)).ToList();
         }
@@ -80,7 +80,7 @@ namespace EuroVaistineFramework.Pages
         {
             List<string> texts = new List<string>();
 
-            List<IWebElement> elements = Common.GetElements(locator);
+            List<IWebElement> elements = GetElements(locator);
             foreach (IWebElement element in elements)
             {
                 texts.Add(element.Text);
