@@ -2,14 +2,14 @@
 using EuroVaistineTests.BaseTests;
 using NUnit.Framework;
 
-namespace EuroVaistineTests.EuroVaistineScenarios
+namespace EuroVaistineTests.TestCases
 {
     internal class LogIn : BaseTest 
     {
         [SetUp]
         public void Open()
         {
-            EuroVaistineMainPage.Open();
+            HomePage.Open();
         }
 
         [Test]
@@ -19,14 +19,14 @@ namespace EuroVaistineTests.EuroVaistineScenarios
             string slaptazodis = "test";
             string expectedResult = "Pašto adresas nerastas. Prašome įvesti teisingą el. pašto adresą";
 
-            EuroVaistineShoppingCart.ClickOnAdvertButton();
-            EuroVaistineShoppingCart.ClickOnSlapukai();
-            EuroVaistineMainPage.ClickButtonPrisijungti();
-            EuroVaistineMainPage.EnterElektroninisPastas(email);
-            EuroVaistineMainPage.EnterSlaptazodis(slaptazodis);
-            EuroVaistineMainPage.ClickButtonPrisijungtiZalias();
+            ShoppingCart.ClickOnAdvertButton();
+            ShoppingCart.ClickOnSlapukai();
+            HomePage.ClickButtonPrisijungti();
+            HomePage.EnterElektroninisPastas(email);
+            HomePage.EnterSlaptazodis(slaptazodis);
+            HomePage.ClickButtonPrisijungtiZalias();
            
-            string actualResult  = EuroVaistineMainPage.GetAlertMessage(); 
+            string actualResult  = HomePage.GetAlertMessage(); 
 
             Assert.AreEqual(expectedResult, actualResult);
         }

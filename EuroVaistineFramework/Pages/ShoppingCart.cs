@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace EuroVaistineFramework.Pages
 {
-    public class EuroVaistineShoppingCart
+    public class ShoppingCart
     {
         public static void Open()
         {
