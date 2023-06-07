@@ -1,4 +1,5 @@
 ﻿using EuroVaistineFramework;
+using EuroVaistineFramework.Pages;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 
@@ -10,6 +11,7 @@ namespace EuroVaistineTests.BaseTests
         public void SetUp()
         {
             Driver.InitializeDriver();
+            HomePage.Open();
         }
 
         [TearDown]

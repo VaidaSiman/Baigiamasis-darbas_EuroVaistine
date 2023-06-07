@@ -6,12 +6,6 @@ namespace EuroVaistineTests.TestCases
 {
     internal class ActionsWithShoppingCart : BaseTest 
     {
-        [SetUp]
-        public void Open()
-        {
-            HomePage.Open();
-        }
-        
         [Test]
         public void AddingItemViaSearchBox()
         {

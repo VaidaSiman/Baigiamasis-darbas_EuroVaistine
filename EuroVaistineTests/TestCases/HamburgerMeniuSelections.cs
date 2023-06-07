@@ -7,12 +7,6 @@ namespace EuroVaistineTests.TestCases
 {
     internal class HamburgerMeniuSelections : BaseTest
     {
-        [SetUp]
-        public void Open()
-        {
-            HomePage.Open();
-        }
-
         [Test]
         public void HamburgerMeniuSelection()
         {
